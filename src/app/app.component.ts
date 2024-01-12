@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
