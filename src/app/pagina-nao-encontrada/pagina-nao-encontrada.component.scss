@@ -1,0 +1,30 @@
+@import './../../styles.scss';
+
+.row {
+    padding: 50px;
+
+    .logo {
+        border-radius: 25px 25px 0px 0px;
+        -moz-border-radius: 25px 25px 0px 0px;
+        -webkit-border-radius: 25px 25px 0px 0px;
+        border: 2px solid #EEEEEE;
+        padding: 20px;
+    }
+
+    .box {
+        
+        background-color: #EEEEEE;
+        border-radius: 0px 0px 25px 25px;
+        -moz-border-radius: 0px 0px 25px 25px;
+        -webkit-border-radius: 0px 0px 25px 25px;
+
+        .not-found{
+            padding: 20px;
+            color: $primary-color;
+            font-family: $font-primary;
+            font-size: 60px;
+        }
+        
+    }
+
+}
