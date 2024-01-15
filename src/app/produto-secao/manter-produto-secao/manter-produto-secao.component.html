@@ -21,3 +21,67 @@
         </div>
     </div>
 </nav>
+<div class="container-fluid">
+    <form class="row">
+        <div class="col-12 mt-4">
+            <div class="header">
+                <div class="title">
+                    <h4>Inserir novo conteúdo</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-12 side-form">
+                <p for="flexSwitchCheckChecked ms-2">Status Geral</p>
+                <div class="form-check form-switch d-flex">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                        [(ngModel)]="statusGeral" [ngModelOptions]="{standalone: true}" (change)="onSwitchChange()">
+                    <label class="form-check-label ms-2" for="flexSwitchCheckChecked">Ativo</label>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">0/30 Caracteres</label>
+                </div>
+                <select class="form-select" disabled aria-label="Default select example">
+                    <option value="1">Funcionalidades</option>
+                </select>
+                <div class="mt-4">
+                    <p>Funcionalidades:</p>
+                    @for(funcionalidade of funcionalidades; track funcionalidade.id){
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="radio" [id]="funcionalidade.id"
+                            [value]="funcionalidade.id" name="funcionalidadeSelecionada">
+                        <label class="form-check-label ml-4" [for]="funcionalidade.id">
+                            <i class="{{ funcionalidade.icone }} ms-2"></i> {{ funcionalidade.nome }}
+                            @if(funcionalidade.info){
+                            <i class="fa fa-question-circle">
+                                <a href="#" data-bs-toggle="tooltip" data-bs-title="The last tip!"></a>
+                            </i>
+                            }
+                        </label>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+        </div>
+    </form>
+</div>

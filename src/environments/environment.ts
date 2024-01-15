@@ -1,6 +1,4 @@
 export const environment = {
-    production: false,
-    apiUrl: 'https://csuapidevsquaddigital.azurewebsites.net/api/',
-    apiAppUrl: 'https://csuapidevsquaddigital.azurewebsites.net/api/',
-  };
-  
+  production: false,
+  apiUrl: 'http://127.0.0.1:8000/api/',
+};
