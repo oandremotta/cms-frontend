@@ -14,15 +14,16 @@ export class TenantService {
 
   public API_URL: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private localStorage: LocalStorageService,
+    private cookieService: CookieService, private http: HttpClient) { }
 
-  // public tenantAtual(): Tenant {
-  //   let tenant = this.localStorage.get('tenantAtual') as Tenant;
-  //   if (!tenant) {
-  //     tenant = this.cookieService.get('tenantAtual') as unknown as Tenant;
-  //   }
-  //   return tenant;
-  // }
+  public tenantAtual(): Tenant {
+    let tenant = this.localStorage.get('tenantAtual') as Tenant;
+    if (!tenant) {
+      tenant = this.cookieService.get('tenantAtual') as unknown as Tenant;
+    }
+    return tenant;
+  }
 
   public getTenants(): Observable<Array<Tenant>> {
     return this.http.get<Array<Tenant>>(this.API_URL + "tenants")

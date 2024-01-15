@@ -12,11 +12,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent implements OnInit {
+
+  isPortalAlunoOpen: boolean = false;
+  isPortalComunidadeOpen: boolean = false;
+
   ngOnInit(): void {
 
   }
 
-  sair(){
-    
+  togglePortal(portalId: string): void {
+    this.isPortalAlunoOpen = !this.isPortalAlunoOpen;
+  }
+
+  sair() {
+
   }
 }

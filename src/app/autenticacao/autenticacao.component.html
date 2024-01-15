@@ -15,14 +15,12 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-8 sidebar backmonster">
-            &nbsp;
-        </div>
+            <div class="col-sm-3 col-md-8 sidebar backmonster">
+                &nbsp;
+            </div>
         <div class="col-sm-9 col-sm-offset-9 col-md-4 col-md-offset-8 col-12 main">
             <div class="row logos">
-                <div class="unio-logo col-md-6 col-sm-6 col-xs-6">
-                    <img src="https://mobstgprdmt.blob.core.windows.net/cms/logos/unio.png" class="img-responsive"
-                        alt="Unio">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                 </div>
                 <div *ngIf="tenant != null" class="tenant-logo col-md-6 col-sm-6 col-xs-6">
                     <img class="pull-right img-responsive" [src]="tenant?.logoUrl" [alt]="tenant?.nome">
