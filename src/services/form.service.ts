@@ -12,7 +12,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 @Injectable({
     providedIn: 'root'
 })
-export class FuncionalidadeService {
+export class FormService {
 
     public API_URL: string = environment.apiUrl;
     private httpOptions = {
@@ -22,7 +22,7 @@ export class FuncionalidadeService {
     constructor(private localStorage: LocalStorageService,
         private cookieService: CookieService, private http: HttpClient) { }
 
-    public listarFuncionalidades(): Observable<any> {
-        return this.http.get(`${this.API_URL}funcionalidades`, this.httpOptions);
+    public obterDadosDaCrianca(): Observable<any> {
+        return this.http.get(`${this.API_URL}app/dados-da-crianca/1`, this.httpOptions);
     }
 }

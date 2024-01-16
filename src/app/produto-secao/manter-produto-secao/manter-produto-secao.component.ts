@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, type OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal, type OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FuncionalidadeService } from '../../../services/funcionalidade.service';
+import { FormService } from '../../../services/form.service';
+// import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-manter-produto-secao',
@@ -17,30 +19,46 @@ import { FuncionalidadeService } from '../../../services/funcionalidade.service'
 export class ManterProdutoSecaoComponent implements OnInit {
 
   statusGeral = false;
+  dadosDaCrianca: any;
   funcionalidades: any = [];
+  isLoading = false;
 
   ngOnInit(): void {
     this.getFuncionalidades();
+    this.getDadosDaCrianca();
   }
 
-  constructor(private funcionalidadeService: FuncionalidadeService) { }
+  constructor(private funcionalidadeService: FuncionalidadeService, private formService: FormService, private ref: ChangeDetectorRef) { }
 
   onSwitchChange() {
     console.log(this.statusGeral);
   }
 
   getFuncionalidades() {
-    this.funcionalidadeService.listarFuncionalidades().subscribe(
-      {
-        next: (value) => {
-          this.funcionalidades = value;
-        },
-        error: (err) => {
-          console.log(err);
-        },
+    this.isLoading = true;
+    this.funcionalidadeService.listarFuncionalidades().subscribe({
+      next: (data) => {
+        this.funcionalidades = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.isLoading = false;
+        this.ref.markForCheck();
       }
-    );
+    })
   }
 
+  getDadosDaCrianca() {
+    this.formService.obterDadosDaCrianca().subscribe({
+      next: (data) => {
+        this.dadosDaCrianca = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 
 }

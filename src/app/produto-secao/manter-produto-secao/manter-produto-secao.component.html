@@ -21,6 +21,7 @@
         </div>
     </div>
 </nav>
+@if(!isLoading){
 <div class="container-fluid">
     <form class="row">
         <div class="col-12 mt-4">
@@ -43,8 +44,14 @@
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
                     <label for="exampleFormControlInput1" class="form-label fw-bold">0/30 Caracteres</label>
                 </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+
                 <select class="form-select" disabled aria-label="Default select example">
                     <option value="1">Funcionalidades</option>
+                    <option value="1">WEB View</option>
                 </select>
                 <div class="mt-4">
                     <p>Funcionalidades:</p>
@@ -66,22 +73,40 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="col-4">
-                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="col-4">
-                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="col-4">
-                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="col-4">
-                <label for="exampleFormControlInput1" class="form-label">Ordem de exibição</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            <p>Campos:</p>
+            <div class="row">
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.nome}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.ra}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.escola}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.professor}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.ano_serie}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.periodo}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
+                <div class="col-4">
+                    <label for="exampleFormControlInput1" class="form-label">{{dadosDaCrianca.turma}}</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>
             </div>
         </div>
     </form>
 </div>
+}@else{
+<h1>Carregando</h1>
+}
